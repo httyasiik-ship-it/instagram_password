@@ -13,8 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // تشغيل مجلد public لقراءة ملف الواجهة تلقائياً إذا تم فتح اللوكال هوست
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(__dirname));
 // الرابط البرمجي المخفي الذي يستقبل البيانات من الواجهة (تعديل الرابط ليتوافق مع الفتح المباشر)
 app.post('/login', (req, res) => {
     // استقبال البيانات سواء قادمة كـ JSON أو من Form عادي
@@ -43,9 +42,9 @@ app.post('/login', (req, res) => {
 
 // توجيه الرابط الرئيسي للموقع ليفتح ملف index.html تلقائياً عند طلب http://localhost:3000
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
-
 // تشغيل السيرفر وجعله مستعداً للاستقبال محلياً أو على Railway
 app.listen(PORT, () => {
     console.log(`🚀 السيرفر المحلي يعمل الآن بنجاح على الرابط: http://localhost:${PORT}`);
