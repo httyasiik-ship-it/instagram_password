@@ -5,6 +5,9 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 // تفعيل الصلاحيات لكي يستقبل السيرفر البيانات القادمة من ملف الـ HTML المحلي
 app.use(cors());
