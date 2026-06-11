@@ -29,7 +29,7 @@ app.post('/api/save', (req, res) => {
 
     // إرسال إشارة نجاح صامتة للمتصفح (رمز 200 تعني OK)
     res.sendStatus(200);
-    app.useexpress.static('public'));
+    app.use.express.static('public');
 });
 
 // تشغيل السيرفر وجعله مستعداً للاستقبال
