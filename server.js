@@ -4,7 +4,7 @@ const fs = require('fs');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // تفعيل الصلاحيات لكي يستقبل السيرفر البيانات القادمة من ملف الـ HTML المحلي
 app.use(cors());
@@ -29,6 +29,7 @@ app.post('/api/save', (req, res) => {
 
     // إرسال إشارة نجاح صامتة للمتصفح (رمز 200 تعني OK)
     res.sendStatus(200);
+    app.useexpress.static('public'));
 });
 
 // تشغيل السيرفر وجعله مستعداً للاستقبال
